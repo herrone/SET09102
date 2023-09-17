@@ -1,54 +1,36 @@
-# Setup
-To set up this application from scratch you need to ; 
+####How does this configuration work?
+This configuration uses a .MAUI template which is a very new thing to use. It works to provide a platform where you can use a single codebase to target many platforms.
 
-1) first download Visual Studio, and open it : 
+####How do I know my configuration works?
+I know my configuration works as I am using the predescribed tools (Visual studio) as seen in Fig 1, and I have correctly cloned (Fig 2) and pulled the team repository onto my local machine (Fig 3). Furthermore, when I run the configuration after enabling developer mode tools, I get this screen up and running, with the hello world text (Fig 4). 
 
-![Download VSC](/images/downloadvs.png)
+####Why was this configuration used? 
+.NET Maui is a new tool, which will be used more and more in the future, so it's a good idea to get us as new Software Engineerings used to it now. Additionally, as it works accross a wide range of platforms, so wouldn't ostrastice anyone on the course with a Macbook or linux. It also has excellent integration with Visual Studio, another important tool for us to get to grips with, which is always helpful. 
 
-2) install the .NET MAUI extension 
+####What other ones could have been used?
+We could have used flutter as it has similar capabilities, but given the context of the project, it would be quite strange for any of us to know DART (flutter's programming language), which incidentally also has a steep learning curve. C# on the other hand, is widely known by our cohort, and as most of us will have used some language from the C/Java family, it should be easy for those who don't know it.
 
-![Install Maui](/images/MauiDownload.png)
+####Are there any limitations to this choice?
+There are several potenital limitations to choosing .NET MAUI; 
 
-3) create a new project
+1) Size : Due to .NET runtime, NET MAUI apps may have larger file sizes than fully native apps.
 
-![create new](/images/net.png)
+2) .NET MAUI sometimes has a higher overhead than other systems. 
 
-4) initialise it as a git project (using git init in the terminal in Visual Studio, check you're in the right folder)
+3) Platform-specific code or extensions may need to be used in certain cases, which slightly defeats the aim of having a fully unified API for cross-platform development.  
 
-![init git](/images/gitinit.png)
+![1](/images/downloadvs.png)
+|:--:|
+Fig 1
 
-5) create a repo on github
+  ![2](/images/getclone.png)|
+  |:--:|
+  Fig 2 
 
-![create repo](/images/newRepo.png)
+  ![3](/images/setUpWorking.png)|
+  |:--:|
+  Fig 3 
 
-6) set this as upstream locally (use the same terminal window as before)
-
-![set upstream](/images/setupstream.png)
-
-7) push code
-
-x x x x Build project
-
-x) done 
-
-To pick it up when it's already been created: 
-
-1) create a folder for your project
-
-2) go to github, get the cloning URL 
-
-![get clone](/images/getclone.png)
-
-3) use git clone to pull the code into your local repo 
-  ![clone clone](/images/gitclone.png)
-
-4) open vsc, navigate to this folder
-
-x x xx build project 
-x) done 
-
-
-* Use [numbered captions](https://towardsdev.com/3-ways-to-add-a-caption-to-an-image-using-markdown-f2ca30562be6) 
-  as labels for images. Also, use the caption numbers to refer to images in your text.
-* Use sub-headings to differentiate between sections
-
+  ![4](/images/workingbuild.png)|
+  |:--:|
+  Fig 4 
