@@ -1,0 +1,1 @@
+To create this repo, I cloned the template on git hub. I took the url to clone it, used the terminal to navigate to my uni repo folder, and pulled it in. Then I added this file, and pushed it. 
