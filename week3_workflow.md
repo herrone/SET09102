@@ -19,7 +19,7 @@ Finally, I  checked my work against the team Defintion of Done, seen in the same
 
 I then updated the issue with all comments and relevant information, and moved my issue to done (Fig 8). 
 
-## Reflection
+**Reflection**
 
 Whilst completing the task I got too weighed down with the UI, and how to design it. I realised I needed first to decide on a structure for the project itself, so I discussed this with one of my colleagues/teammates, and we worked together on the MVVM structure we eventually landed on. I also struggled with naming the table exactly as it should be in the issue, but as I looked around online I realised it is just one line above the class as a decorator (Fig 9) which was needed. 
 
