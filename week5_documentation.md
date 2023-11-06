@@ -8,7 +8,7 @@
 <u>Description:</u> Exception handling is an incredibly important aspect of writing good, robust code. It essentially means that if something doesn't behave or appear in the way initially expected (such as if a file is meant to be read in, but the file can't be found), then instead of the entire program collapsing, then the program will continue, and potentially even display a user-friendly error message, as this possibility has been thought of. Additionally, exception handling can include logging messages for future debugging/diagnostics, making the maintenance and understanding of the software easier to achieve.
  
 <u>Previous Snippet:</u> 
-```
+```csharp
  public async Task<int> AddRota(Rota rota)
  {
      await SetUpDb();
@@ -18,7 +18,7 @@
 ```
 <u>Rewrite:</u> 
 
-```
+```csharp
  public async Task<int> AddRota(Rota rota)
     {
         try
@@ -42,7 +42,7 @@
 
 <u>Previous Snippet:</u> 
 
-```
+```csharp
  private void SaveButton_Clicked(object sender, EventArgs e)
  {
      if (String.IsNullOrEmpty(txe_rota.Text)) return;
@@ -70,7 +70,7 @@
 ```
 <u>Rewrite:</u>
 
-```
+```csharp
 private void SaveButton_Clicked(object sender, EventArgs e)
 {
     if (String.IsNullOrEmpty(txe_rota.Text)) return;
@@ -123,7 +123,7 @@ private void ClearUIComponents()
 <u>Description:</u> The SRP essentially states that each class (or method) should ideally have only one single responsibility, which it should do very well. This again leads to more maintable and understandable code, which is also easier to test. 
 
 <u>Previous Snippet:</u> 
-```
+```csharp
 private void SaveButton_Clicked(object sender, EventArgs e)
  {
      if (String.IsNullOrEmpty(txe_rota.Text)) return;
@@ -151,7 +151,7 @@ private void SaveButton_Clicked(object sender, EventArgs e)
 ```
 <u>Rewrite:</u>
 
-```
+```csharp
 private void SaveButton_Clicked(object sender, EventArgs e)
 {
     if (String.IsNullOrEmpty(txe_rota.Text)) return;
@@ -206,14 +206,14 @@ Within my code I had several examples of naming conventions not being followed, 
 
 <u>Previous Snippet:</u> 
 
-```
- <Editor x:Name="txe_rota" TxeRota
+```csharp
+ <Editor x:Name="txe_rota"                 
                 Placeholder="Add a Rota"
                 HeightRequest="100" />
 ```
 <u>Rewrite:</u>
 
-```
+```csharp
 <Editor x:Name="RotaNameTextEditor"
         Placeholder="Add a Rota"
         HeightRequest="100" />
@@ -229,7 +229,7 @@ Within my code I had several examples of naming conventions not being followed, 
 In my code I wrote a method to clear 3 values used or manipulated by the UI:
 
 <u>Previous Snippet:</u> 
-```
+```csharp
 private void ClearUIComponents()
         {
             _selectedRota = null;
@@ -240,7 +240,7 @@ private void ClearUIComponents()
 ```
 And in another method, I did this manually: 
 
-```
+```csharp
  private async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
             if (RotaListView.SelectedItem == null)
@@ -259,7 +259,7 @@ And in another method, I did this manually:
 ```
 <u>Rewrite:</u>
 
-```
+```csharp
 private async void OnDeleteButtonClicked(object sender, EventArgs e)
 {
     if (RotaListView.SelectedItem == null)
@@ -282,7 +282,7 @@ private async void OnDeleteButtonClicked(object sender, EventArgs e)
 <u>Description:</u> Dependency Injection is a design pattern where necessary components (for example, a database manager) are provided (typically in the consturctor of an object) to an object, instead of the object needing to create them within themselves. It allows components to be less strongly coupled up, so elements within can be replaced or switched out without issue.
 
 <u>Previous Snippet:</u> 
-```
+```csharp
 private Rota _selectedRota = null;
         private IRotaService _rotaService;
         private ObservableCollection<Rota> _rotaCollection = new ObservableCollection<Rota>();
@@ -298,7 +298,7 @@ private Rota _selectedRota = null;
         }
 ```
 <u>Rewrite:</u>
-```
+```csharp
 private Rota _selectedRota = null;
     private IRotaService _rotaService;
     private ObservableCollection<Rota> _rotaCollection = new ObservableCollection<Rota>();
@@ -315,7 +315,7 @@ private Rota _selectedRota = null;
 ```
 <u>Explanation: </u>This rewrite is better as it loosens the coupling between RotaPage and IRotaService by not directly creating a dependency. It also makes the system more flexible, as it can use different implementations of IRotaService without disrupting the functionality of RotaPage. Finally, it aligns with the Diversion Inversion Principle better, as high-level modules (like RotaPage) should not depend on low-level modules (like RotaService). By using DI, I depended on an abstraction (IRotaService), not a concrete implementation, adhering to this principle.
 
-####Doxygen Comments 
+##Part 2 - Doxygen Comments 
 
 *I added a lot of comments, so I have decided to only include 3 examples of Doxygen comments, with a description of the effect they have, and screenshots from the HTML they generate:* 
 
@@ -338,7 +338,7 @@ Output:
 
 
 **2)** 
-```
+```csharp
 /// <summary>
 /// Gets or sets the name of the Rota.
 /// </summary>
@@ -357,7 +357,7 @@ Output:
   Fig 2 - Gets and Sets
 
 **3)** 
-```
+```csharp
 /// <summary>
 /// Notifies clients that a property value has changed.
 /// </summary>
@@ -374,13 +374,13 @@ Output:
   |:--:|
   Fig 3 - OnPropertyChanged 
 
-####Part 3 - Clean Code Preventing the Need for Comments
+##Part 3 - Clean Code Preventing the Need for Comments
 
 *Each of the 3 examples here shows how adhering to the principles of clean code has negated any need for comments;*
 
 **1) Clear method names:** The method name ClearUIComponents is descriptive of its purpose, which means it's unnecessary to add comments explaining its functionality, as the name itself provides clear documentation.
 
-```
+```csharp
 private void ClearUIComponents()
 { 
     RotaListView.SelectedItem = null;
@@ -392,8 +392,8 @@ private void ClearUIComponents()
 ```
 private Rota _selectedRota = null;
 ```
-**3) Use of Exception Handling and Logging:** The comment provides context for the purpose of the catch block, making it clear that it's used for logging errors, and the code's structure and the comment together show that any exceptions thrown during database operations will be logged to the console, which serves as clear documentation of error handling behavior, negating any need for comments.
-```
+**3) Use of Exception Handling and Logging:** The code's structure and the "WriteLine" together show that any exceptions thrown during database operations will be logged to the console, which serves as clear documentation of error handling behavior, negating any need for comments.
+```csharp
 public async Task<int> AddRota(Rota rota)
 {
     try
@@ -403,11 +403,7 @@ public async Task<int> AddRota(Rota rota)
     }
     catch (Exception ex)
     {
-        Console.WriteLine("Database or insert failure: " + ex.Message); // Log the error message.
-        throw;
+       await Shell.Current.DisplayAlert("Rota couldn't be inserted to Database");
     }
 }
-In this case, the comments add context to the purpose of the exception handling and logging, making it clear why these constructs are used in the code.
-
 ```
-
